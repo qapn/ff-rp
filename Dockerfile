@@ -10,7 +10,7 @@ RUN python install.py --onnxruntime cuda --skip-conda
 
 RUN pip install runpod --no-cache-dir
 
-RUN python facefusion.py force-download
+RUN python facefusion.py force-download || python facefusion.py force-download || python facefusion.py force-download
 
 RUN mkdir -p /tmp/facefusion /tmp/facefusion-jobs
 
