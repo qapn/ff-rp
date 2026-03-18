@@ -6,11 +6,9 @@ RUN git clone --branch 3.4.1 --depth 1 https://github.com/facefusion/facefusion.
 
 WORKDIR /facefusion
 
-RUN pip install numpy==2.3.2 onnx==1.19.0 opencv-python==4.12.0.88 \
-    psutil==7.0.0 tqdm==4.67.1 scipy==1.16.1 \
-    runpod --no-cache-dir
-
-RUN pip install onnxruntime-gpu==1.22.1 --no-cache-dir
+RUN pip install -r requirements.txt --no-cache-dir && \
+    pip uninstall -y onnxruntime && \
+    pip install onnxruntime-gpu runpod --no-cache-dir
 
 RUN python facefusion.py force-download \
     --processors face_swapper face_enhancer \
