@@ -1,6 +1,6 @@
-FROM madiator2011/better-pytorch:cuda12.4-torch2.6.0
+FROM runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404
 
-RUN apt-get update && apt-get install -y ffmpeg curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y ffmpeg curl git && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --branch 3.4.1 --depth 1 https://github.com/facefusion/facefusion.git /facefusion
 
