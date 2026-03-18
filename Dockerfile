@@ -10,13 +10,7 @@ RUN python install.py --onnxruntime cuda --skip-conda
 
 RUN pip install runpod --no-cache-dir
 
-RUN python facefusion.py force-download \
-    --processors face_swapper face_enhancer \
-    --face-swapper-model ghost_1_256 \
-    --face-enhancer-model gfpgan_1.4 \
-    --face-detector-model retinaface \
-    --face-landmarker-model 2dfan4 \
-    --execution-providers cuda
+RUN python facefusion.py force-download
 
 RUN mkdir -p /tmp/facefusion /tmp/facefusion-jobs
 
