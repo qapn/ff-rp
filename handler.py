@@ -143,8 +143,11 @@ def handler(job):
             stderr_tail = result.stderr[-2000:] if result.stderr else 'no stderr'
             return {'error': f'Output file missing or empty. stderr: {stderr_tail}'}
 
+        file_size = os.path.getsize(output_path)
         with open(output_path, 'rb') as f:
             video_base64 = base64.b64encode(f.read()).decode('utf-8')
+        b64_len = len(video_base64)
+        print(f"[handler] Output file: {file_size / 1024 / 1024:.2f} MB, base64 length: {b64_len}, estimated payload: {b64_len / 1024 / 1024:.2f} MB", flush=True)
 
         return {
             'video_base64': video_base64,
