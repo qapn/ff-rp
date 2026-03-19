@@ -69,7 +69,7 @@ def handler(job):
     reference_face_distance = float(inp.get('reference_face_distance', 0.6))
     face_selector_mode = inp.get('face_selector_mode', 'reference')
     reference_frame_number = int(inp.get('reference_frame_number', 0))
-    output_video_quality = int(inp.get('output_video_quality', 80))
+    output_video_quality = int(inp.get('output_video_quality', 57))
 
     source_path = None
     target_path = None
