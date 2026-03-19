@@ -112,6 +112,8 @@ def handler(job):
             '--reference-face-distance', str(reference_face_distance),
             '--reference-frame-number', str(reference_frame_number),
             '--output-video-quality', str(output_video_quality),
+            '--output-video-encoder', 'libx264',
+            '--output-video-preset', 'medium',
             '--execution-providers', 'cuda',
             '--temp-path', '/tmp/facefusion',
             '--jobs-path', job_dir,
